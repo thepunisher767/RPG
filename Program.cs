@@ -5,9 +5,9 @@ namespace RPG
 {
     class GameCharacter
     {
-        private string _name;
-        private int _strength;
-        private int _intel;
+        protected string _name { get; set; }
+        protected int _strength { get; set; }
+        protected int _intel { get; set; }
 
         public GameCharacter(string name, int strength, int intel)
         {
@@ -17,28 +17,26 @@ namespace RPG
         }
         public virtual void Play()
         {
-            Console.Write($"{_name} (int {_intel}, strength {_strength}");
         }
     }
 
     class MagicUsingCharacter : GameCharacter
     {
-        private int _magic;
+        private int _magic { get; set; }
 
-        public MagicUsingCharacter(string name, int strength, int intel, int magic) : base (name, strength, intel)
+        public MagicUsingCharacter(string name, int strength, int intel, int magic) : base(name, strength, intel)
         {
             _magic = magic;
         }
         public override void Play()
         {
-            base.Play();
-            Console.Write($", magic {_magic}) ");
+            Console.Write($"{_name} (int {_intel}, strength {_strength}, magic {_magic})");
         }
     }
 
     class Wizard : MagicUsingCharacter
     {
-        private int _spellNumber;
+        private int _spellNumber { get; set; }
 
         public Wizard(string name, int strength, int intel, int magic, int spellNumber) : base(name, strength, intel, magic)
         {
@@ -47,13 +45,13 @@ namespace RPG
         public override void Play()
         {
             base.Play();
-            Console.Write($" {_spellNumber} spells");
+            Console.WriteLine($" {_spellNumber} spells");
         }
     }
 
     class Warrior : GameCharacter
     {
-        private string _weaponType;
+        private string _weaponType { get; set; }
 
         public Warrior(string name, int strength, int intel, string weaponType) : base(name, strength, intel)
         {
@@ -61,8 +59,7 @@ namespace RPG
         }
         public override void Play()
         {
-            base.Play();
-            Console.Write($") {_weaponType}");
+            Console.WriteLine($"{_name} (int {_intel}, strength {_strength}) {_weaponType}");
         }
     }
 
@@ -81,7 +78,6 @@ namespace RPG
             for (int i = 0; i < gameCharacters.Count; i++)
             {
                 gameCharacters[i].Play();
-                Console.WriteLine();
             }
         }
     }
