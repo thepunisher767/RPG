@@ -68,11 +68,12 @@ namespace RPG
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the World of Dev.Buildcraft!!!\n");
             List<GameCharacter> gameCharacters = new List<GameCharacter>();
-            gameCharacters.Add(new Warrior("Frank Reynolds", 0, 99, "Toe Knife"));
+            gameCharacters.Add(new Warrior("Frank \"SweetPeaches69\" Reynolds", 0, 99, "Toe Knife"));
             gameCharacters.Add(new Warrior("Mac", 45, 0, "Fists"));
             gameCharacters.Add(new Warrior("Charlie", 12, -10, "Gun"));
-            gameCharacters.Add(new Wizard("Dee", 2, 1, 4, 2));
+            gameCharacters.Add(new Wizard("Dee \"ZingingCutie23\" Reynolds", 2, 1, 4, 2));
             gameCharacters.Add(new Wizard("Dennis", 13, 99, 89, 9999));
 
             for (int i = 0; i < gameCharacters.Count; i++)
